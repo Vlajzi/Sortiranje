@@ -1,4 +1,6 @@
 #include "SortingAlgorithms.h"
+#include <stdlib.h>
+
 
 namespace Algoritmi
 {
@@ -159,6 +161,58 @@ namespace Algoritmi
 
 			heapify(a, n, 0);
 		}
+	}
+
+	int MaxElement(int* a,int n)
+	{
+		int min = a[0];
+		for (int i = 1; i < n; i++)
+		{
+			if (a[i] > min)
+			{
+				min = a[i];
+			}
+		}
+		return min;
+	}
+
+	void Copy(int* a, int* b, int n)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			a[i] = b[i];
+		}
+	}
+
+
+	void CountingSort(int* a,int n)
+	{
+		int max = MaxElement(a, n);
+
+		int* c = (int*)calloc(max+1, sizeof(int));
+
+		int* b = (int*)calloc(n , sizeof(int));
+		
+		for (int i = 0; i < n; i++)
+		{
+			c[a[i]]++;
+		}
+
+		for (int i = 1; i < max+1; i++)
+		{
+			c[i] += c[i - 1];
+		}
+
+		for (int i = n - 1; i >= 0; i--)
+		{
+			b[c[a[i]]-1] = a[i];
+			c[a[i]]--;
+		}
+
+		Copy(a, b, n);
+
+		free(b);
+		free(c);
 	}
 
 }

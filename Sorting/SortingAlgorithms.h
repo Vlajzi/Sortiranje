@@ -7,4 +7,5 @@ namespace Algoritmi
 	void BubbleSort(int* a, int n);
 	void QuickSort(int* a, int n);
 	void HeapSort(int* a, int n);
+	void CountingSort(int* a, int n);
 }

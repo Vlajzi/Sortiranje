@@ -21,6 +21,8 @@ int main(int argc, char* argv[])
 	Racun(QuickSort);
 	cout << "HeapSort" << endl;
 	Racun(HeapSort);
+	cout << "CountingSort" << endl;
+	Racun(CountingSort);
 	return 0;
 }
 
