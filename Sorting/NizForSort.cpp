@@ -2,6 +2,8 @@
 #include <malloc.h>
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
@@ -60,4 +62,21 @@ void NizForSort::LoadArray(string path)
 		ulaz >> Niz[i];
 	}
 	ulaz.close();
+}
+
+void NizForSort::generate(int low, int high, int n)
+{
+
+	if (this->Niz != nullptr)
+	{
+		free(Niz);
+	}
+
+	Niz = (int*)malloc(sizeof(int) * n);
+
+	for (int i = 0; i < n; i++)
+	{
+		Niz[i] = rand()%1000;
+	}
+
 }

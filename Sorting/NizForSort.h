@@ -15,6 +15,7 @@ public:
 	void SetSort(void (*sortiranje)(int*, int));
 	void SetArray(int b[]);
 	void LoadArray(string path);
+	void generate(int low, int high,int n);
 private:
 	int* Niz;
 	int n;
