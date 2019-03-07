@@ -1,6 +1,10 @@
 #include "SortingAlgorithms.h"
 #include <stdlib.h>
+#include <vector>
+#include <algorithm> 
 
+
+using namespace std;
 
 namespace Algoritmi
 {
@@ -217,8 +221,37 @@ namespace Algoritmi
 
 	void BucketSort(int* a, int n)
 	{
+		int k = n/100;
+		
+		int div = 100;//n / k;
+
+		int** b = (int**)calloc(k,sizeof(int*));
+
+		for (int i = 0; i < k; i++)
+		{
+			b[i] = (int*)calloc(n, sizeof(int));
+		}
+
+		int* poz = (int*)calloc(k, sizeof(int));
+
+		for (int i = 0; i < n; i++)
+		{
+			b[a[i] / div][poz[a[i]/div]++] = a[i];
+		}
+
+		for (int i = 0; i < k; i++)
+		{
+			InsercionSort(b[i],poz[i]);
+
+		}
+
+		int index = 0;
+		for (int i = 0; i < k; i++)
+			for (int j = 0; j < poz[i]; j++)
+				a[index++] = b[i][j];
 
 
+		
 	}
 
 }

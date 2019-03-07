@@ -23,6 +23,8 @@ int main(int argc, char* argv[])
 	Racun(HeapSort);
 	cout << "CountingSort" << endl;
 	Racun(CountingSort);
+	cout << "BucketSort" << endl;
+	Racun(BucketSort);
 	return 0;
 }
 
@@ -34,8 +36,8 @@ void Racun(void (*sortiranje)(int*, int))
 
 	n1 = new NizForSort(10);
 	n1->SetSort(sortiranje);
-	n1->LoadArray("C:\\Users\\Intel\\Desktop\\Test.txt");
-
+	//n1->LoadArray("C:\\Users\\Intel\\Desktop\\Test.txt");
+	n1->generate(0, 1000, 1000);
 
 
 	//n1->Printf();

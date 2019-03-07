@@ -67,6 +67,10 @@ void NizForSort::LoadArray(string path)
 void NizForSort::generate(int low, int high, int n)
 {
 
+	srand(10);
+
+	this->n = n;
+		
 	if (this->Niz != nullptr)
 	{
 		free(Niz);
