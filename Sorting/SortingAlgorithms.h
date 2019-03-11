@@ -9,4 +9,5 @@ namespace Algoritmi
 	void HeapSort(int* a, int n);
 	void CountingSort(int* a, int n);
 	void BucketSort(int* a, int n);
+	void BucketSortLS(int* a, int n);
 }

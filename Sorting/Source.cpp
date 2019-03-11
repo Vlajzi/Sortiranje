@@ -2,8 +2,8 @@
 #include "SortingAlgorithms.h"
 #include <iostream>
 #include <chrono>
-#include "windows.h"
-#include "psapi.h"
+#include <windows.h>
+#include <psapi.h>
 
 
 
@@ -32,10 +32,11 @@ int main(int argc, char* argv[])
 	for (int i = 0; i < 7; i++)
 	{
 
-		cout << "HeapSort" << endl;
-		Racun(HeapSort, numb);
+		/*cout << "HeapSort" << endl;
+		Racun(HeapSort, numb);*/
 		cout << "BucketSort" << endl;
-		Racun(BucketSort, numb);
+		Racun(BucketSortLS, numb);
+		cout << "End point" << endl << endl;
 		numb *= 10;
 	}
 	//return 0;
@@ -68,7 +69,6 @@ void Racun(void (*sortiranje)(int*, int),int count)
 	GetProcessMemoryInfo(GetCurrentProcess(), (PPROCESS_MEMORY_COUNTERS)&pmc, sizeof(pmc));
 	SIZE_T virtualMemUsedByMe = pmc.PrivateUsage;
 	cout << "Total virtual memory used: " << virtualMemUsedByMe << endl;
-
 	//time
 	//n1->Printf();
 

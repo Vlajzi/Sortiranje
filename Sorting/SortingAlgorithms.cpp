@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <algorithm> 
+#include "SortedList.h"
 
 
 using namespace std;
@@ -221,9 +222,9 @@ namespace Algoritmi
 
 	void BucketSort(int* a, int n)
 	{
-		int k = n/100;
+		int k = 100;
 		
-		int div = 100;//n / k;
+		int div = 1000/10;//n / k;
 
 		int** b = (int**)calloc(k,sizeof(int*));
 
@@ -253,6 +254,43 @@ namespace Algoritmi
 
 
 		
+	}
+
+
+	void BucketSortLS(int* a, int n)
+	{
+		 int k = 100;
+
+		int div = 1000 / 10;//n / k;
+
+		SortedList* b = (SortedList*)calloc(k, sizeof(SortedList));
+
+		//SortedList b[100];
+
+		for (int i = 0; i < k; i++)
+		{
+			b[i] = SortedList();
+		}
+
+		int* poz = (int*)calloc(k, sizeof(int));
+
+		for (int i = 0; i < n; i++)
+		{
+			b[a[i] / div].AddElem(a[i]);
+			poz[a[i] / div]++;
+		}
+
+		/*for (int i = 0; i < k; i++)
+		{
+			//InsercionSort(b[i],poz[i]);
+			HeapSort(b[i], poz[i]);
+
+		}*/
+
+		int index = 0;
+		for (int i = k; i >= 0; i--)
+			for (int j = 0; j < poz[i]; j++)
+				a[index++] = b[i].Get();
 	}
 
 }
