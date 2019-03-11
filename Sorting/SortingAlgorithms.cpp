@@ -241,7 +241,8 @@ namespace Algoritmi
 
 		for (int i = 0; i < k; i++)
 		{
-			InsercionSort(b[i],poz[i]);
+			//InsercionSort(b[i],poz[i]);
+			HeapSort(b[i],poz[i]);
 
 		}
 
